@@ -7,7 +7,7 @@ import { CartService } from '../services/cart.service';
 
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-cards',
   imports: [CommonModule, RouterModule],
   template: `
     <div class="row">
