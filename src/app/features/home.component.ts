@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../core/footer.component';
+import { InfoCardComponent } from "../shared/info-card.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [InfoCardComponent],
   template: `
     <div class="container-fluid p-0 m-0">
       <div
@@ -12,27 +13,15 @@ import { FooterComponent } from '../core/footer.component';
         <p class="text-white fs-3">La pizza con lo Smoking</p>
       </div>
 
-      <div class="row mt-5 justify-content-center">
-        <div
-          class="col-12 col-md-6 text-center d-flex flex-column justify-content-center align-items-center"
-        >
-          <h1>Benvenuti nella nostra Pizzeria!</h1>
-          <p>
-            Lasciati tentare dalle nostre pizze.<br />
-            Siamo qui per offrirti un'esperienza culinaria indimenticabile.<br />
+      <app-info-card
+      title="Benvenuti nella nostra Pizzeria!"
+      text="Lasciati tentare dalle nostre pizze.
+            Siamo qui per offrirti un'esperienza culinaria indimenticabile.
             Realizzata con tanta cura e amore, è la prova indiscutibile che la
-            felicità sta nelle piccole cose.
-          </p>
-        </div>
-
-        <div class="col-12 col-md-6 d-flex justify-content-center mt-4">
-          <img
-            src="assets/napoletana.jpg"
-            class="img-fluid rounded shadow"
-            alt="Pizza napoletana"
-          />
-        </div>
-      </div>
+            felicità sta nelle piccole cose."
+      image="/assets/napoletana.jpg"
+      alt="Pizzeria"
+            />
       <div class="imgScroll mt-5">
         <div class="overlay">
           <h2 class="text-center text-white pt-5">La nostra storia</h2>
@@ -45,24 +34,13 @@ import { FooterComponent } from '../core/footer.component';
         </div>
       </div>
       <!--reverse row -->
-      <div class="row mt-5 justify-content-center flex-row-reverse">
-        <div
-          class="col-12 col-md-6 text-center d-flex flex-column justify-content-center align-items-center"
-        >
-          <h1>Anche a domicilio!</h1>
-          <p>contattaci per ordinare la tua pizza preferita e riceverla</p>
-          <strong>+39 999 999 999</strong>
-        </div>
-
-        <div class="col-12 col-md-6 d-flex justify-content-center mt-4">
-          <img
-            src="assets/domicilio.png"
-            class="img-fluid rounded shadow"
-            alt="domicilio pizza"
-          />
-        </div>
-      </div>
-    </div>
+      <app-info-card
+      title="Anche a domicilio!"
+      text="contattaci per ordinare la tua pizza preferita e riceverla"
+      image="/assets/domicilio.png"
+      alt="Pizza a domicilio"
+      [reverse]= "true"
+      ><strong>+39 999 999 999</strong></app-info-card>
   `,
   styles: `
 .backgroundImg {

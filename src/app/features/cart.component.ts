@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
       <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid" style="width: 100px; height: auto; margin-left: 10px;"/>
     </div>
     <div *ngIf="cartItems.length > 0">
-      <h3>Total: {{ getTotal()}}</h3>
+      <h3>Total: {{ getTotal().toFixed(2)}}</h3>
     </div>
     <div *ngIf="cartItems.length === 0">
       <p>Your cart is empty.</p>
