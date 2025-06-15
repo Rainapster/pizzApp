@@ -10,7 +10,10 @@ import { CartService } from '../services/cart.service';
   selector: 'app-cards',
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="row justify-content-center">
+    <div class="cards-container row justify-content-center m-0">
+      <div *ngIf="cartProducts.length <= 0" class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-primary" (click)="resetCards()">Reset Order</button>
+      </div>
       <div *ngFor="let product of cartProducts" class="card px-0">
         <img
           src="{{ product.image }}"
@@ -34,6 +37,9 @@ import { CartService } from '../services/cart.service';
     </div>
   `,
   styles: `
+    .cards-container {
+      padding-top: 140px;
+    }
     .card {
       width: 18rem;
       margin: 10px;
@@ -54,16 +60,20 @@ export class CardComponent {
 
   constructor(private productService: ProductService, private cartService: CartService) {
     if(!this.cartService.getCartItems().length) {
-    this.productService
-      .getProducts()
-      .subscribe((data) => {
-        this.cartService.setCartItems(data); 
-        this.cartProducts = this.cartService.getCartItems();
-      });
+      this.clearCards();
     } else {
       this.cartProducts = this.cartService.getCartItems();
     }
   }
+  private clearCards() {
+    this.productService
+    .getProducts()
+    .subscribe((data) => {
+      this.cartService.setCartItems(data); 
+      this.cartProducts = this.cartService.getCartItems();
+    });
+  }
+  
   addToCart({ item }: SetCartItemProps){
     this.cartService.setCartItem({item, add: true});
   }
@@ -73,5 +83,8 @@ export class CardComponent {
    deleteCard(item: Pizza){
     this.cartService.deleteCartItem(item);
     this.cartProducts = this.cartService.getCartItems();
+  }
+  resetCards() {
+    this.clearCards();
   }
 }

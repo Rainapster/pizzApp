@@ -33,7 +33,7 @@ import { Location } from '@angular/common';
       margin-bottom: 24px;
     }
     .container{
-      margin-top: 20px;
+      padding-top: 130px;
       display: flex;
       flex-direction: column;
       align-items: center;

@@ -10,7 +10,7 @@ import { InfoCardComponent } from "../shared/info-card.component";
       <div
         class="backgroundImg container-fluid d-flex justify-content-center align-items-center"
       >
-        <p class="text-white fs-3">La pizza con lo Smoking</p>
+        <p class="text-white fs-3  position-absolute top-0 left-0 right-0 d-flex align-items-center justify-content-center w-100 h-100">La pizza con lo Smoking</p>
       </div>
 
       <app-info-card
@@ -24,13 +24,15 @@ import { InfoCardComponent } from "../shared/info-card.component";
             />
       <div class="imgScroll mt-5">
         <div class="overlay">
-          <h2 class="text-center text-white pt-5">La nostra storia</h2>
-          <p class="text-center text-white px-5">
-            La nostra pizzeria è un luogo dove la tradizione incontra la
-            passione. Ogni pizza è preparata con ingredienti freschi e di alta
-            qualità, seguendo le ricette tramandate di generazione in
-            generazione.
-          </p>
+          <div class="container">
+            <h2 class="text-center text-white">La nostra storia</h2>
+            <p class="text-center text-white mx-5">
+              La nostra pizzeria è un luogo dove la tradizione incontra la
+              passione. Ogni pizza è preparata con ingredienti freschi e di alta
+              qualità, seguendo le ricette tramandate di generazione in
+              generazione.
+            </p>
+          </div>
         </div>
       </div>
       <!--reverse row -->
@@ -52,6 +54,8 @@ import { InfoCardComponent } from "../shared/info-card.component";
   display: flex; 
   justify-content: center; 
   align-items: center; 
+  position: relative;
+  margin-top: 95px;
 }
 
 .backgroundImg p {
@@ -60,7 +64,6 @@ import { InfoCardComponent } from "../shared/info-card.component";
   font-size: 24px;
 }
 .imgScroll {
-  padding-top: 90px;
   align-items: center;
   background-image: url('/assets/pizzeria.jpeg');
   background-size: cover;
@@ -70,15 +73,15 @@ import { InfoCardComponent } from "../shared/info-card.component";
 }
 .overlay {
   background-color: rgba(27, 25, 25, 0.85);
-  height: 30%;
+  height: 25%;
   width: 100%;
   z-index: 1;
   position: sticky;
-  top: 0;
+  top: 95px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  padding: 24px 0px;
 }
   `,
 })

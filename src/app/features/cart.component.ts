@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   selector: 'app-cart',
   imports: [CommonModule],
   template: `
-  <div class="container d-flex align-items-center justify-content-center flex-column">
+  <div class="container d-flex align-items-center justify-content-center flex-column cart-container">
     <div *ngFor="let item of cartItems" class="d-flex align-items-center justify-content-center flex-column mb-3">
       <p>{{ item.name }} - {{ item.quantity }} x {{ item.price }}</p>
       <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid" style="width: 100px; height: auto; margin-left: 10px;"/>
@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
     <div *ngIf="cartItems.length > 0">
       <h3>Total: {{ getTotal().toFixed(2)}}</h3>
     </div>
-    <div *ngIf="cartItems.length === 0">
+    <div *ngIf="cartItems.length === 0" class="h-75">
       <p>Your cart is empty.</p>
     </div>
     <button *ngIf="cartItems.length > 0" class="btn btn-primary" (click)="pay()">Pay</button>
@@ -32,7 +32,6 @@ import { Router } from '@angular/router';
     
   `,
   styles: `
-
     .modal {
     position: fixed;
     top: 0; left: 0;
@@ -48,6 +47,9 @@ import { Router } from '@angular/router';
     max-width: 30%;
     padding: 20px;
     text-align: center;
+  }
+  .cart-container {
+    padding-top: 120px
   }
   `
 })
