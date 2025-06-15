@@ -10,8 +10,8 @@ import { CartService } from '../services/cart.service';
   selector: 'app-cards',
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="row">
-      <div *ngFor="let product of cartProducts" class="card">
+    <div class="row justify-content-center">
+      <div *ngFor="let product of cartProducts" class="card px-0">
         <img
           src="{{ product.image }}"
           class="card-img-top"
@@ -20,8 +20,8 @@ import { CartService } from '../services/cart.service';
           style="cursor:pointer;"
         />
         <div class="card-body margin: 10px;">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">Price: {{ product.price }}</p>
+          <h5 class="card-title text-center">{{ product.name }}</h5>
+          <p class="card-text text-center">Price: {{ product.price }}</p>
           <div class="interaction-buttons d-flex flex-row align-items-center">
             <button (click)="addToCart({item: product})" class="btn btn-primary">+</button>
             <p class="mb-0 mx-2">{{ product.quantity }}</p>

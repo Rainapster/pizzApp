@@ -8,7 +8,7 @@ import { InfoCardComponent } from "../shared/info-card.component";
   template: `
     <div class="container-fluid p-0 m-0">
       <div
-        class="backgroundImg d-flex justify-content-center align-items-center"
+        class="backgroundImg container-fluid d-flex justify-content-center align-items-center"
       >
         <p class="text-white fs-3">La pizza con lo Smoking</p>
       </div>
